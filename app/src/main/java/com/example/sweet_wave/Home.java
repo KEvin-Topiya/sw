@@ -8,6 +8,7 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.sax.RootElement;
 import android.view.MenuItem;
 import android.widget.Toast;
 
@@ -24,6 +25,7 @@ import kotlin.jvm.functions.Function1;
 
 public class Home extends AppCompatActivity {
      MeowBottomNavigation nav;
+     String ROOT_FRAGMENT_TAG;
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,8 +77,16 @@ public class Home extends AppCompatActivity {
     public void loadfrag(Fragment fr,int x){
         FragmentManager fm = getSupportFragmentManager();
         FragmentTransaction ft = fm.beginTransaction();
-        if(x==0){ft.add(R.id.container,fr);}
-        else ft.replace(R.id.container, fr);
+        if(x==0){
+            ft.add(R.id.container,fr);
+            fm.popBackStack(ROOT_FRAGMENT_TAG,FragmentManager.POP_BACK_STACK_INCLUSIVE);
+            ft.addToBackStack(ROOT_FRAGMENT_TAG);
+        }
+        else {
+            ft.replace(R.id.container, fr);
+            ft.addToBackStack(null);
+        }
+
         ft.commit();
     }
 }
