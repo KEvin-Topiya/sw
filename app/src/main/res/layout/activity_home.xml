@@ -3,14 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
     android:gravity="center"
-    android:background="@color/bg1"
-    tools:context=".Splash">
+    android:layout_height="match_parent"
+    tools:context=".Home">
 
-    <pl.droidsonroids.gif.GifImageView
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/spalsh1"/>
+        android:textSize="30dp"
+        android:text="Home"/>
 
 </LinearLayout>

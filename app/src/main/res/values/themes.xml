@@ -6,4 +6,10 @@
     </style>
 
     <style name="Theme.Sweet_wave" parent="Base.Theme.Sweet_wave" />
+    <style name="btn1">
+        <item name="fontFamily">@font/aclonica</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">18dp</item>
+        <item name="android:padding">15dp</item>
+    </style>
 </resources>
