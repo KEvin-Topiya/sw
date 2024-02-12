@@ -87,7 +87,7 @@
                 android:background="@drawable/input_box"
                 android:inputType="textPassword"
                 android:fontFamily="@font/aclonica"
-                android:hint="Username/Email...."
+                android:hint="Password..."
                 android:padding="12dp"
                 android:textSize="18dp" />
 
