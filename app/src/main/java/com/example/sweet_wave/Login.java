@@ -29,7 +29,10 @@ EditText usr,pwd;
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(usr.getText().toString().equals("RJK") && pwd.getText().toString().equals("RJK") ){
+                if(usr.getText().toString().equals("") || pwd.getText().toString().equals("")){
+                    Toast.makeText(Login.this, "Please Enter all valid Credentials", Toast.LENGTH_SHORT).show();
+                }
+                else if(usr.getText().toString().equals("RJK") && pwd.getText().toString().equals("RJK") ){
                     startActivity(new Intent(getApplicationContext(), Home.class));
                 }
                 else{
