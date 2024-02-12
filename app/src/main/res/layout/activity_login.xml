@@ -112,6 +112,8 @@
             android:layout_centerHorizontal="true"
             android:layout_below="@+id/frgpwd"
             android:layout_marginTop="34dp"
+            style="@style/btn1"
+            android:background="@drawable/btn1"
             android:text="Sign In" />
 
 
