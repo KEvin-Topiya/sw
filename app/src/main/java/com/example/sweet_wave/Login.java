@@ -13,7 +13,7 @@ import android.widget.Toast;
 
 public class Login extends AppCompatActivity {
 Button login;
-TextView fpwd;
+TextView fpwd,crtacc;
 EditText usr,pwd;
     @SuppressLint("MissingInflatedId")
     @Override
@@ -25,6 +25,7 @@ EditText usr,pwd;
         usr=findViewById(R.id.usr);
         pwd=findViewById(R.id.pwd);
         fpwd=findViewById(R.id.frgpwd);
+        crtacc=findViewById(R.id.crtacc);
 
         login.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -45,6 +46,13 @@ EditText usr,pwd;
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getApplicationContext(), Forgat_pwd.class));
+            }
+        });
+
+        crtacc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), sign_up.class));
             }
         });
 
