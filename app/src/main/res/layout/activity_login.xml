@@ -121,7 +121,6 @@
     android:layout_height="wrap_content"
     android:layout_alignParentEnd="true"
     android:elevation="-10dp"
-    style="@style/btn1"
     android:layout_alignParentBottom="true"
     android:src="@drawable/cupcake"/>
 
