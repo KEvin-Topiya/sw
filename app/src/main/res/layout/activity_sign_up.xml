@@ -15,8 +15,11 @@
     <RelativeLayout
         android:id="@+id/rl"
         android:layout_width="340dp"
-        android:layout_height="450dp"
+        android:layout_height="420dp"
+        android:layout_alignParentBottom="true"
         android:layout_centerInParent="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="105dp"
         android:background="@drawable/login_box"
         android:padding="20dp">
 
@@ -25,8 +28,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="50dp"
-            android:layout_marginBottom="30dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
             android:fontFamily="@font/averiagruesalibre"
             android:text="SIGN UP"
             android:textColor="@color/black"
@@ -119,14 +122,14 @@
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/login"
+            style="@style/btn1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/llp"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="80dp"
-            android:text="Sign Up"
             android:background="@drawable/btn1"
-            style="@style/btn1"/>
+            android:text="Sign Up" />
 
     </RelativeLayout>
 
@@ -135,7 +138,6 @@
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:elevation="-10dp"
-        style="@style/btn1"
         android:layout_alignParentBottom="true"
         android:src="@drawable/cupcake"/>
 

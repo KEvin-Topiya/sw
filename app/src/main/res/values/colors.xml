@@ -4,4 +4,6 @@
     <color name="white">#FFFFFFFF</color>
     <color name="bg1">#F5C144</color>
     <color name="login_box_bg">#E6C5D7E6</color>
+    <color name="BlueViolet">#8A2BE2</color>
+
 </resources>
