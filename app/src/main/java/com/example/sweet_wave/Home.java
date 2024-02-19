@@ -32,7 +32,7 @@ BottomNavigationView nav;
            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                int id = item.getItemId();
                if (id == R.id.nav_home) {
-                    loadfrag(new Home_frag(),false);
+                    loadfrag(Home_frag.getInstance("kevin",2),false);
                } else if (id == R.id.nav_dis) {
                     loadfrag(new offer_frag(),false);
                } else if (id == R.id.nav_cart) {
