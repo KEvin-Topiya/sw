@@ -9,12 +9,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.sweet_wave.Home;
 import com.example.sweet_wave.R;
 
 
 public class Home_frag extends Fragment {
-    private  static final  String arg1="Argument1";
-    private  static final  String arg2="Argument2";
+    private  static final  String arg1="arg1";
+    private  static final  String arg2="arg1";
     public Home_frag() {
         // Required empty public constructor
     }
@@ -35,8 +36,8 @@ public class Home_frag extends Fragment {
             if(getArguments()!=null){
                 String name=getArguments().getString(arg1);
                 int id=getArguments().getInt(arg2);
-                Log.d("valu from argument","Name:"+name+" Roll No:"+id);
             }
+                ((Home)getActivity()).si();
 
 
         return inflater.inflate(R.layout.fragment_home_frag, container, false);

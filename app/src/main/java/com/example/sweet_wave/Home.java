@@ -9,6 +9,7 @@ import androidx.fragment.app.FragmentTransaction;
 import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.example.sweet_wave.fragements.Home_frag;
 import com.example.sweet_wave.fragements.cart_frag;
@@ -32,23 +33,26 @@ BottomNavigationView nav;
            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                int id = item.getItemId();
                if (id == R.id.nav_home) {
-                    loadfrag(Home_frag.getInstance("kevin",2),false);
+                    loadfrag(new Home_frag(),0);
                } else if (id == R.id.nav_dis) {
-                    loadfrag(new offer_frag(),false);
+                    loadfrag(new offer_frag(),0);
                } else if (id == R.id.nav_cart) {
-                   loadfrag(new cart_frag(),false);
+                   loadfrag(new cart_frag(),0);
                } else {
-                   loadfrag(new user_frag(),true);
+                   loadfrag(new user_frag(),1);
                }
                return true;
            }
        });
        nav.setSelectedItemId(R.id.nav_home);
     }
-    public void loadfrag(Fragment fr,boolean x){
+    public  void si(){
+        Toast.makeText(getApplicationContext(), "Hello", Toast.LENGTH_SHORT).show();
+    }
+    public void loadfrag(Fragment fr,int x){
         FragmentManager fm = getSupportFragmentManager();
         FragmentTransaction ft = fm.beginTransaction();
-        if(x)ft.add(R.id.container,fr);
+        if(x==0){ft.add(R.id.container,fr);}
         else ft.replace(R.id.container, fr);
         ft.commit();
     }
