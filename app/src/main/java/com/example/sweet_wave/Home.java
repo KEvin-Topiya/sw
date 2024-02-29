@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.etebarian.meowbottomnavigation.MeowBottomNavigation;
 import com.example.sweet_wave.fragements.Home_frag;
 import com.example.sweet_wave.fragements.cart_frag;
 import com.example.sweet_wave.fragements.offer_frag;
@@ -18,21 +19,47 @@ import com.example.sweet_wave.fragements.user_frag;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 
+import kotlin.Unit;
+import kotlin.jvm.functions.Function1;
+
 public class Home extends AppCompatActivity {
-BottomNavigationView nav;
+     MeowBottomNavigation nav;
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        nav=findViewById(R.id.navbar);
+        nav = findViewById(R.id.nav);
 
-       nav.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
-           @Override
-           public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-               int id = item.getItemId();
-               if (id == R.id.nav_home) {
+        nav.add(new MeowBottomNavigation.Model(1, R.drawable.home));
+        nav.add(new MeowBottomNavigation.Model(2, R.drawable.cuppon_icn));
+        nav.add(new MeowBottomNavigation.Model(3, R.drawable.bag_icn));
+        nav.add(new MeowBottomNavigation.Model(4, R.drawable.user_icon));
+        nav.show(1,true);
+        loadfrag(new Home_frag(),0);
+        nav.setOnClickMenuListener(new Function1<MeowBottomNavigation.Model, Unit>() {
+            @Override
+            public Unit invoke(MeowBottomNavigation.Model model) {
+                switch(model.getId())
+                {
+                    case 1:loadfrag(new Home_frag(),0);
+                        break;
+                    case 2:loadfrag(new offer_frag(),0);
+                        break;
+                    case 3: loadfrag(new cart_frag(),0);
+                        break;
+                    case 4: loadfrag(new user_frag(),1);
+                        break;
+                }
+                return null;
+            }
+        });
+
+    }
+
+    /*
+    *  if (id == R.id.nav_home) {
                     loadfrag(new Home_frag(),0);
                } else if (id == R.id.nav_dis) {
                     loadfrag(new offer_frag(),0);
@@ -41,11 +68,7 @@ BottomNavigationView nav;
                } else {
                    loadfrag(new user_frag(),1);
                }
-               return true;
-           }
-       });
-       nav.setSelectedItemId(R.id.nav_home);
-    }
+    * */
     public  void si(){
         Toast.makeText(getApplicationContext(), "Hello", Toast.LENGTH_SHORT).show();
     }

@@ -1,3 +1,4 @@
+
 plugins {
     id("com.android.application")
 }
@@ -32,7 +33,9 @@ android {
 }
 
 dependencies {
-    implementation("pl.droidsonroids.gif:android-gif-drawable:1.2.25")
+// https://mvnrepository.com/artifact/com.etebarian/meow-bottom-navigation
+    implementation("com.etebarian:meow-bottom-navigation:1.2.0")
+    implementation("pl.droidsonroids.gif:android-gif-drawable:1.2.28")      // gif
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.11.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")

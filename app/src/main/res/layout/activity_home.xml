@@ -14,10 +14,25 @@
         android:layout_marginBottom="?attr/actionBarSize"
         />
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/navbar"
+    <com.etebarian.meowbottomnavigation.MeowBottomNavigation
+        android:id="@+id/nav"
         android:layout_width="match_parent"
-        android:layout_alignParentBottom="true"
-        app:menu="@menu/bottom_nav"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        app:mbn_circleColor="@color/OrangeRed"
+        app:mbn_backgroundBottomColor="@color/bg1"
+        app:mbn_countBackgroundColor="#ff6f00"
+        app:mbn_countTextColor="@color/GreenYellow"
+        app:mbn_defaultIconColor="#fff"
+        app:mbn_rippleColor="#2f424242"
+        app:mbn_selectedIconColor="#fff"
+        app:mbn_shadowColor="#1f212121"
+        android:layout_alignParentBottom="true"/>
+
+
+    <!--    <com.google.android.material.bottomnavigation.BottomNavigationView-->
+<!--        android:id="@+id/navbar"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_alignParentBottom="true"-->
+<!--        app:menu="@menu/bottom_nav"-->
+<!--        android:layout_height="wrap_content"/>-->
 </RelativeLayout>
