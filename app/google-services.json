@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "281513474252",
+    "project_id": "sweet-wave-d9400",
+    "storage_bucket": "sweet-wave-d9400.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:281513474252:android:a919b7efd4e94d3ac9ea69",
+        "android_client_info": {
+          "package_name": "com.example.sweet_wave"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD1RqCX8z1wbZvbUnIkJY-gcRutKuEPIbA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
