@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -30,6 +31,8 @@ import java.util.concurrent.TimeUnit;
 public class otp extends AppCompatActivity {
 ActivityOtpBinding av;
 String ph,un,ps,vId,otp;
+SharedPreferences sp;
+SharedPreferences.Editor editor;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,6 +41,7 @@ String ph,un,ps,vId,otp;
         av.pgbar.setVisibility(View.INVISIBLE);
 
         Intent i=getIntent();
+        sp=getSharedPreferences("SW",MODE_PRIVATE);
         ph="+91"+i.getStringExtra("pn");
         un=i.getStringExtra("un");
         ps=i.getStringExtra("pw");
@@ -76,6 +80,14 @@ String ph,un,ps,vId,otp;
                                     av.pgbar.setVisibility(View.VISIBLE);
                                     av.vrfy.setVisibility(View.INVISIBLE);
                                     i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+
+                                    editor=sp.edit();
+                                    editor.putString("phone",ph);
+                                    editor.putString("user",un);
+                                    editor.putString("login","20");
+
+                                    editor.apply();
+
                                     startActivity(i);
                                 }else{
                                     av.vrfy.setVisibility(View.VISIBLE);
