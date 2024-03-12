@@ -95,8 +95,15 @@ SharedPreferences.Editor editor;
                                     editor.putString("login","20");
 
                                     editor.apply();
-                                    addtofirebae(un,ph,ps);
-                                    startActivity(i);
+                                    addUser a=new addUser();
+                                    if(!(a.addtofirebae(un,ph,ps))){
+                                        startActivity(i);
+                                    }
+                                    else{
+                                        Toast.makeText(otp.this, "Error To add User", Toast.LENGTH_SHORT).show();
+                                    }
+
+
                                 }else{
                                     av.vrfy.setVisibility(View.VISIBLE);
                                     Toast.makeText(otp.this, "OTP is Not valid", Toast.LENGTH_SHORT).show();
@@ -122,28 +129,7 @@ SharedPreferences.Editor editor;
         });
 
     }
-    public void addtofirebae(String un,String ph,String ps){
-        FirebaseFirestore db = FirebaseFirestore.getInstance();
-        Map<String, Object> user = new HashMap<>();
-        user.put("Name", un);
-        user.put("Phone", ph);
-        user.put("Password", ps);
 
-        db.collection("User")
-                .add(user)
-                .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-                    @Override
-                    public void onSuccess(DocumentReference documentReference) {
-                        Toast.makeText(otp.this, "Error adding document", Toast.LENGTH_SHORT).show();
-                    }
-                })
-                .addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Toast.makeText(otp.this, "Error adding document", Toast.LENGTH_SHORT).show();
-                    }
-                });
-    }
 
 
 }
