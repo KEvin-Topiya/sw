@@ -123,8 +123,9 @@ SharedPreferences.Editor editor;
         av.resend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                sign_up s=new sign_up();
-//                s.sendOtp(ph);
+                startActivity(new Intent(getApplicationContext(), sign_up.class));
+                finish();
+
             }
         });
 
