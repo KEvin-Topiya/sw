@@ -13,7 +13,10 @@ import android.widget.*;
 import android.widget.Toast;
 
 import com.example.sweet_wave.databinding.ActivityOtpBinding;
+import com.example.sweet_wave.firebase.addUser;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.FirebaseException;
 import com.google.firebase.FirebaseTooManyRequestsException;
@@ -25,7 +28,12 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthOptions;
 import com.google.firebase.auth.PhoneAuthProvider;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.ktx.Firebase;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 public class otp extends AppCompatActivity {
@@ -87,7 +95,7 @@ SharedPreferences.Editor editor;
                                     editor.putString("login","20");
 
                                     editor.apply();
-
+                                    addtofirebae(un,ph,ps);
                                     startActivity(i);
                                 }else{
                                     av.vrfy.setVisibility(View.VISIBLE);
@@ -99,6 +107,10 @@ SharedPreferences.Editor editor;
 
                     }
                 }
+
+
+
+                
             }
         });
         av.resend.setOnClickListener(new View.OnClickListener() {
@@ -110,5 +122,28 @@ SharedPreferences.Editor editor;
         });
 
     }
+    public void addtofirebae(String un,String ph,String ps){
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        Map<String, Object> user = new HashMap<>();
+        user.put("Name", un);
+        user.put("Phone", ph);
+        user.put("Password", ps);
+
+        db.collection("User")
+                .add(user)
+                .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                    @Override
+                    public void onSuccess(DocumentReference documentReference) {
+                        Toast.makeText(otp.this, "Error adding document", Toast.LENGTH_SHORT).show();
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Toast.makeText(otp.this, "Error adding document", Toast.LENGTH_SHORT).show();
+                    }
+                });
+    }
+
 
 }
