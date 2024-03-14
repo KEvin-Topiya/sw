@@ -18,6 +18,7 @@ import java.util.concurrent.TimeUnit;
 
 public class sign_up extends AppCompatActivity {
     Button lg;
+    TextView d;
     EditText un,phno,pwd;
     FirebaseAuth mAuth;
     ProgressBar pgbar;
@@ -33,12 +34,20 @@ public class sign_up extends AppCompatActivity {
         mAuth=FirebaseAuth.getInstance();
 
         lg=findViewById(R.id.login);
+        d=findViewById(R.id.tvlog);
         un=findViewById(R.id.usr);
         pwd=findViewById(R.id.pwd);
         phno=findViewById(R.id.phone);
         pgbar=findViewById(R.id.prog);
         pgbar.setVisibility(View.INVISIBLE);
         i=new Intent(this, otp.class);
+
+        d.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), Home.class));
+            }
+        });
 
         lg.setOnClickListener(new View.OnClickListener() {
             @Override
