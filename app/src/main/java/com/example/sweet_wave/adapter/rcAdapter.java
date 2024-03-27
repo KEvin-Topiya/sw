@@ -1,9 +1,11 @@
 package com.example.sweet_wave.adapter;
 
 import android.content.Context;
+import android.media.Image;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -13,75 +15,46 @@ import com.example.sweet_wave.R;
 import com.example.sweet_wave.fragements.Home_frag;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class rcAdapter extends RecyclerView.Adapter<rcAdapter.ViewHolder>{
-Context context;
-ArrayList<ProductStructure> data;
-    public rcAdapter(Context context , ArrayList<ProductStructure> data){
+    Context context;
+    ArrayList<ProductStructure> arrl;
+    public rcAdapter(Context context,ArrayList<ProductStructure> arrl){
         this.context=context;
-        this.data=data;
+        this.arrl=arrl;
     }
+
 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View v= LayoutInflater.from(context).inflate(R.layout.product_list_design,parent,false);
-        return new ViewHolder(v);
+
+        View view= LayoutInflater.from(context).inflate(R.layout.product_list_design,parent,false);
+        return new ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.un.setText(data.get(position).nm);
-        holder.ps.setText(data.get(position).ps);
+//        holder.img.setImageResource(arrl.get(position).img);
+        holder.name.setText(arrl.get(position).nm);
+        holder.price.setText(arrl.get(position).ps);
     }
 
     @Override
     public int getItemCount() {
-        return data.size();
+        return arrl.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder{
-TextView un,ps;
+    public static class ViewHolder extends RecyclerView.ViewHolder{
+
+        TextView name,price;
+        ImageView img;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            un=itemView.findViewById(R.id.uname);
-            ps=itemView.findViewById(R.id.upass);
-        }
-    }
-
-}
-/*
- private List<String> mData;
-
-        public rcAdapter(List<String> data) {
-            this.mData = data;
+            name=itemView.findViewById(R.id.pname);
+            price=itemView.findViewById(R.id.price);
+//            img=itemView.findViewById(R.id.img_rc);
         }
 
-        @NonNull
-        @Override
-        public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.product_list_design, parent, false);
-            return new ViewHolder(view);
-        }
-
-        @Override
-        public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-            String item = mData.get(position);
-            holder.textViewName.setText(item);
-        }
-
-        @Override
-        public int getItemCount() {
-            return mData.size();
-        }
-
-        public static class ViewHolder extends RecyclerView.ViewHolder {
-            TextView textViewName;
-
-            public ViewHolder(@NonNull View itemView) {
-                super(itemView);
-                textViewName = itemView.findViewById(R.id.textViewName);
-            }
-        }
-    }
- */
+    }}

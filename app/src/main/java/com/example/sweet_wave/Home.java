@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import com.etebarian.meowbottomnavigation.MeowBottomNavigation;
 import com.example.sweet_wave.fragements.Home_frag;
+import com.example.sweet_wave.fragements.add_Product;
 import com.example.sweet_wave.fragements.cart_frag;
 import com.example.sweet_wave.fragements.offer_frag;
 import com.example.sweet_wave.fragements.user_frag;
@@ -39,7 +40,7 @@ public class Home extends AppCompatActivity {
         nav.add(new MeowBottomNavigation.Model(3, R.drawable.bag_icn));
         nav.add(new MeowBottomNavigation.Model(4, R.drawable.user_icon));
         nav.show(1,true);
-        loadfrag(new Home_frag(),0);
+        loadfrag(new add_Product(),0);
         nav.setOnClickMenuListener(new Function1<MeowBottomNavigation.Model, Unit>() {
             @Override
             public Unit invoke(MeowBottomNavigation.Model model) {

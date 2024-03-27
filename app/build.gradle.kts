@@ -35,10 +35,13 @@ android {
 
 dependencies {
     implementation(platform("com.google.firebase:firebase-bom:32.7.3"))
-    implementation("com.google.firebase:firebase-analytics")
     implementation("com.google.firebase:firebase-auth")
-    implementation("com.google.firebase:firebase-firestore")
     implementation("com.google.firebase:firebase-database:20.3.1")
+    implementation("com.google.firebase:firebase-storage")
+    implementation("com.google.firebase:firebase-firestore")
+    implementation ("com.firebaseui:firebase-ui-auth:3.0.0")
+    implementation ("com.firebaseui:firebase-ui-firestore:3.0.0")
+
 
 
 

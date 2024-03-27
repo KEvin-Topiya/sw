@@ -8,4 +8,85 @@
     tools:context=".fragements.add_Product">
 
 
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Add Product"
+    android:textColor="@color/Blue"
+    android:layout_marginBottom="30dp"
+    android:textSize="40dp"/>
+
+    <TableLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+
+        <TableRow>
+            <TextView
+                android:text="Name: "
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:textSize="20dp"
+                />
+            <EditText
+                android:id="@+id/pname"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:textSize="20dp"
+                android:hint="Product Name.."/>
+
+        </TableRow>
+    <TableRow>
+        <TextView
+            android:text="Price: "
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:textSize="20dp"
+            />
+        <EditText
+            android:id="@+id/price"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:textSize="20dp"
+            android:inputType="number"
+            android:hint="price.."/>
+
+    </TableRow>
+    <TableRow>
+        <TextView
+            android:text="Description: "
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:textSize="20dp"
+            />
+        <EditText
+            android:id="@+id/desc"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:textSize="20dp"
+            android:hint="Product Descri..."/>
+
+    </TableRow>
+<androidx.appcompat.widget.AppCompatButton
+    android:id="@+id/img"
+    android:layout_width="wrap_content"
+    android:textSize="20dp"
+    android:layout_height="wrap_content"
+    android:text="Select Image"/>
+    <TextView
+        android:id="@+id/imgurl"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/addp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="30dp"
+            android:background="@color/DeepSkyBlue"
+            android:textColor="@color/white"
+            android:text="Add Product"/>
+
+    </TableLayout>
+
 </LinearLayout>
