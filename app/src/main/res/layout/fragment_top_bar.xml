@@ -24,10 +24,24 @@
         android:src="@drawable/ash"/>
     </LinearLayout>
 
-    <ImageView
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
         android:layout_centerVertical="true"
+        android:layout_alignParentEnd="true">
+
+    <ImageView
+        android:id="@+id/cart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:src="@drawable/cart" />
+    <TextView
+        android:layout_alignRight="@+id/cart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="25dp"
+        android:fontFamily="@font/aclonica"
+        android:textColor="@color/white"
+        android:text=""/>
+    </LinearLayout>
 </RelativeLayout>

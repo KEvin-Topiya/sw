@@ -20,6 +20,7 @@ import com.example.sweet_wave.firebase.*;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Random;
 
 public class otp extends AppCompatActivity {
 ActivityOtpBinding av;
@@ -73,10 +74,11 @@ SharedPreferences.Editor editor;
                                     av.pgbar.setVisibility(View.VISIBLE);
                                     av.vrfy.setVisibility(View.INVISIBLE);
                                     i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
-
+                                    Random rand=new Random();
                                     editor=sp.edit();
-                                    editor.putString("phone",ph);
+                                    editor.putString("UID",un+rand.nextInt(10000));
                                     editor.putString("user",un);
+                                    editor.putString("phone",ph);
                                     editor.putString("login","20");
 
                                     editor.apply();
