@@ -87,7 +87,7 @@ SharedPreferences.Editor editor;
                                     map.put("Password",ps);
                                     map.put("Phone",ph);
 
-                                    if(!(a.addtofirebae("User",map))){
+                                    if(!(a.addtofirebae("User",map,map.get("Name")))){
                                         startActivity(i);
                                     }
                                     else{

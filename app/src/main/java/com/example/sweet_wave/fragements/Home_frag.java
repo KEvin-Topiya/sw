@@ -69,9 +69,10 @@ public class Home_frag extends Fragment {
                                 // Fetch the "name" field from each document
                                 String name = document.getString("Name");
                                 String price = document.getString("Price");
-                            data.add(new ProductStructure(" "+name," "+price));
+                                String img = document.getString("Img");
+                            data.add(new ProductStructure(""+name,""+price,""+img));
                             }
-                            rc.setLayoutManager(new GridLayoutManager(view.getContext(), 2));
+                            rc.setLayoutManager(new GridLayoutManager(context, 2));
                             rc.setAdapter(rca);
                         } else {
                             Toast.makeText(context, "error", Toast.LENGTH_SHORT).show();

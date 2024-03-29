@@ -28,12 +28,11 @@ import java.util.HashMap;
 
 public class add_Product extends Fragment {
     FragmentAddProductBinding av;
-    private static final int PICK_IMAGE_REQUEST = 22;
+    private static final int PICK_IMAGE_REQUEST = 1;
     Bitmap image;
     String picturePath;
     Uri filePath;
 
-    private static int RESULT_LOAD_IMAGE = 1;
     public add_Product() {
         // Required empty public constructor
     }
@@ -47,16 +46,11 @@ public class add_Product extends Fragment {
         av.img.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 Intent intent = new Intent();
                 intent.setType("image/*");
                 intent.setAction(Intent.ACTION_GET_CONTENT);
-                startActivityForResult(
-                        Intent.createChooser(
-                                intent,
-                                "Select Image from here..."),
-                        PICK_IMAGE_REQUEST);
-
-
+                startActivityForResult(intent,PICK_IMAGE_REQUEST);
             }
         });
 
@@ -68,7 +62,7 @@ public class add_Product extends Fragment {
                 product.put("Name",av.pname.getText().toString());
                 product.put("Price",av.price.getText().toString());
                 product.put("Desc",av.desc.getText().toString());
-                if(!a.imgup(filePath,context,product)){
+                if(!a.imgup(filePath,context,product,av.pname.getText().toString())){
                     Toast.makeText(context, "uploaded", Toast.LENGTH_SHORT).show();
                 }
                 else{
@@ -92,6 +86,7 @@ public class add_Product extends Fragment {
             filePath = data.getData();
         av.imgurl.setText(filePath.toString());
         }
+
 
 
 

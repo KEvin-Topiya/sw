@@ -11,6 +11,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.sweet_wave.R;
 import com.example.sweet_wave.fragements.Home_frag;
 
@@ -37,6 +38,12 @@ public class rcAdapter extends RecyclerView.Adapter<rcAdapter.ViewHolder>{
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 //        holder.img.setImageResource(arrl.get(position).img);
+
+
+        Glide.with(context)
+                .load(arrl.get(position).img)
+                .into(holder.img);
+        ;
         holder.name.setText(arrl.get(position).nm);
         holder.price.setText(arrl.get(position).ps);
     }
@@ -54,7 +61,7 @@ public class rcAdapter extends RecyclerView.Adapter<rcAdapter.ViewHolder>{
             super(itemView);
             name=itemView.findViewById(R.id.pname);
             price=itemView.findViewById(R.id.price);
-//            img=itemView.findViewById(R.id.img_rc);
+            img=itemView.findViewById(R.id.img_rc);
         }
 
     }}
