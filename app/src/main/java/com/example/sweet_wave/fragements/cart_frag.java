@@ -31,7 +31,7 @@ public class cart_frag extends Fragment {
     sqlLiteHelper db;
     ArrayList<cart> ac;
 
-
+    public MeowBottomNavigation bottomNavigation;
 
     @SuppressLint({"WrongViewCast", "MissingInflatedId"})
     @Override
@@ -39,6 +39,9 @@ public class cart_frag extends Fragment {
                              Bundle savedInstanceState) {
         View view=inflater.inflate(R.layout.fragment_cart_frag, container, false);
         Context context=container.getContext();
+
+        bottomNavigation = requireActivity().findViewById(R.id.nav);
+        bottomNavigation.show(3,true);
 
 
         Context act=getActivity();

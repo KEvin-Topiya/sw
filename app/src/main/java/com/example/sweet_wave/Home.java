@@ -28,7 +28,6 @@ import kotlin.jvm.functions.Function1;
 public class Home extends AppCompatActivity {
      MeowBottomNavigation nav;
      String ROOT_FRAGMENT_TAG;
-    public Context context=getApplicationContext();
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
