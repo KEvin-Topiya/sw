@@ -70,7 +70,7 @@ public class Home_frag extends Fragment {
                                 String name = document.getString("Name");
                                 String price = document.getString("Price");
                                 String img = document.getString("Img");
-                                String dec = document.getString("dec");
+                                String dec = document.getString("Desc");
                             data.add(new ProductStructure(""+name,""+price,""+img,""+dec));
                             }
                             rc.setLayoutManager(new GridLayoutManager(context, 2));

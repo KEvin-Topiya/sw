@@ -7,6 +7,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.os.Bundle;
 import android.sax.RootElement;
 import android.view.MenuItem;
@@ -27,19 +28,22 @@ import kotlin.jvm.functions.Function1;
 public class Home extends AppCompatActivity {
      MeowBottomNavigation nav;
      String ROOT_FRAGMENT_TAG;
+    public Context context=getApplicationContext();
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        nav = findViewById(R.id.nav);
+
+
+        nav=init();
 
         nav.add(new MeowBottomNavigation.Model(1, R.drawable.home));
         nav.add(new MeowBottomNavigation.Model(2, R.drawable.cuppon_icn));
         nav.add(new MeowBottomNavigation.Model(3, R.drawable.bag_icn));
         nav.add(new MeowBottomNavigation.Model(4, R.drawable.user_icon));
-        nav.show(1,true);
+       menuset(1);
         loadfrag(new add_Product(),0);
         nav.setOnClickMenuListener(new Function1<MeowBottomNavigation.Model, Unit>() {
             @Override
@@ -89,5 +93,14 @@ public class Home extends AppCompatActivity {
         }
 
         ft.commit();
+    }
+    public void menuset(int id){
+        nav.show(id,true);
+    }
+
+    public MeowBottomNavigation init(){
+        nav = findViewById(R.id.nav);
+
+        return  nav;
     }
 }

@@ -2,6 +2,7 @@ package com.example.sweet_wave.adapter;
 
 import static android.content.Context.MODE_PRIVATE;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -50,7 +51,7 @@ public class rcAdapter extends RecyclerView.Adapter<rcAdapter.ViewHolder> {
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, @SuppressLint("RecyclerView") int position) {
 //        holder.img.setImageResource(arrl.get(position).img);
 
 
@@ -89,7 +90,7 @@ public class rcAdapter extends RecyclerView.Adapter<rcAdapter.ViewHolder> {
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
-        TextView name, price;
+        TextView name, price ;
         ImageView img;
 
         public ViewHolder(@NonNull View itemView) {

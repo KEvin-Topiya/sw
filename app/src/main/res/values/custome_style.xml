@@ -4,4 +4,8 @@
         <item name="cornerSize">50%</item>
 
     </style>
+
+    <style name="cart_img">
+        <item name="cornerSizeBottomLeft">50dp</item>
+    </style>
 </resources>

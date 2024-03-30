@@ -10,53 +10,86 @@
     android:id="@+id/pimg"
     android:layout_gravity="center"
     android:layout_width="300dp"
+    android:foregroundGravity="top"
     android:layout_height="300dp"/>
+
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:gravity="left"
-        android:layout_margin="20dp"
-        android:paddingLeft="20dp"
+        android:layout_height="294dp"
         >
 
-        <TextView
-        android:id="@+id/ptitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="25dp"
-        android:textStyle="bold"
-        />
-
-        <TextView
-            android:id="@+id/price"
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="25dp"
-            android:textColor="@color/OrangeRed"/>
+            android:layout_margin="10dp"
+            android:gravity="left"
+            android:orientation="vertical"
+            android:paddingLeft="20dp">
+
+            <TextView
+                android:id="@+id/ptitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="..."
+                android:textSize="25dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="..."
+                android:textColor="@color/OrangeRed"
+                android:textSize="25dp" />
 
 
-        <TextView
-            android:id="@+id/Dec"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="20dp"/>
+            <TextView
+                android:id="@+id/Dec"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="..."
+                android:textSize="20dp" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/add"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="0dp"
+                    android:text="+" />
+
+                <TextView
+                    android:id="@+id/qty"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20dp"
+                    android:textStyle="bold"
+                    android:text="1" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/remove"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="-" />
+
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/Buy"
         android:background="@drawable/button_shape"
         android:textColor="@color/white"
-        android:textSize="25dp"
-        android:layout_marginTop="20dp"
+        android:layout_gravity="center"
+        android:textSize="20dp"
         android:padding="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Buy Now"/>
-    </LinearLayout>
-    </ScrollView>
+        android:text="Add to cart"/>
 
 
 </LinearLayout>

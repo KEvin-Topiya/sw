@@ -8,6 +8,8 @@ import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatButton;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -20,6 +22,7 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.sweet_wave.*;
+import com.example.sweet_wave.adapter.sqlLiteHelper;
 import com.example.sweet_wave.firebase.addToFirebase;
 
 import java.util.ArrayList;
@@ -31,10 +34,15 @@ public class plist extends Fragment {
     public plist() {
         // Required empty public constructor
     }
+    int x;
+    String t="",p="",i="",d="";
+    Uri im;
     Button buy;
+    AppCompatButton ad,rm;
+
     ImageView img;
     addToFirebase a;
-    TextView title,prc,dec;
+    TextView title,prc,dec,qt;
     SharedPreferences sp;
     SharedPreferences.Editor editor;
     @SuppressLint({"MissingInflatedId", "SetTextI18n"})
@@ -49,9 +57,28 @@ public class plist extends Fragment {
         prc=view.findViewById(R.id.price);
         dec=view.findViewById(R.id.Dec);
         buy=view.findViewById(R.id.Buy);
+        ad=view.findViewById(R.id.add);
+        rm=view.findViewById(R.id.remove);
+        qt=view.findViewById(R.id.qty);
 
-        String t="",p="",i="",d="";
-        Uri im;
+         x=1;
+
+        ad.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                x++;
+                qt.setText(""+x);
+            }
+        });
+        rm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(x>1) x--;
+                qt.setText(""+x);
+            }
+        });
+
+
         sp=context.getSharedPreferences("Product",MODE_PRIVATE);
         t=""+sp.getString("Name","");
         p=""+sp.getString("Price","");
@@ -59,10 +86,24 @@ public class plist extends Fragment {
         d=""+sp.getString("Dec","");
         im= Uri.parse(i);
 
-        title.setText("\nName:"+t);
-        dec.setText("\nDescription:\n"+d);
-        prc.setText("\nPrice"+p+" $");
+        title.setText("Name: "+t);
+        dec.setText("\nDescription:\n  "+d);
+        prc.setText("\nPrice: "+p+" $");
         Glide.with(context).load(i).into(img);
+
+        buy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            sqlLiteHelper db=new sqlLiteHelper(context);
+            db.addtoCart(t,i,x,(Integer.parseInt(p)*x));
+                AppCompatActivity activity= (AppCompatActivity) v.getContext();
+                cart_frag cart=new cart_frag();
+                activity.getSupportFragmentManager().beginTransaction().replace(R.id.container,cart).addToBackStack(null).commit();
+            }
+        });
+
+
         return view;
     }
 }

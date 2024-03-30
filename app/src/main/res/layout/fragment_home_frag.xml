@@ -9,6 +9,9 @@
 
    <androidx.recyclerview.widget.RecyclerView
        android:id="@+id/product"
+       android:layout_gravity="center"
+       android:foregroundGravity="center"
+       android:padding="5px"
        android:layout_width="match_parent"
        android:layout_height="wrap_content"/>
 
