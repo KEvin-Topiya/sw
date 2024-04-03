@@ -10,7 +10,8 @@
         android:id="@+id/topbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:name="com.example.sweet_wave.fragements.top_bar"/>
+        android:name="com.example.sweet_wave.fragements.top_bar"
+        />
 
 
     <FrameLayout

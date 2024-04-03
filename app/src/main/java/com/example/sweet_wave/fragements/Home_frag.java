@@ -1,6 +1,7 @@
 package com.example.sweet_wave.fragements;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.LayoutInflater;
@@ -16,7 +17,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.sweet_wave.R;
 import com.example.sweet_wave.adapter.ProductStructure;
+import com.example.sweet_wave.adapter.other;
 import com.example.sweet_wave.adapter.rcAdapter;
+import com.example.sweet_wave.firebase.addToFirebase;
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -37,8 +40,9 @@ public class Home_frag extends Fragment {
 
     Context context;
     FirebaseFirestore db = FirebaseFirestore.getInstance();
+    public int count;
 
-    ;
+    int c=0;
 
 
     public Home_frag() {
@@ -48,14 +52,20 @@ public class Home_frag extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
         View view = inflater.inflate(R.layout.fragment_home_frag, container, false);
+        context = container.getContext();
+        SharedPreferences sp= context.getSharedPreferences("pCount",Context.MODE_PRIVATE);
+
         RecyclerView rc = view.findViewById(R.id.product);
+//        other h=new other(context);
+
+        try{
+         c=Integer.parseInt(sp.getString("count",""));
+        }catch (Exception e){}
 
         ArrayList<ProductStructure> data = new ArrayList<>();
-        context = container.getContext();
+        addToFirebase a=new addToFirebase();
 
-        String nm ="", ps="";
 
         rcAdapter rca = new rcAdapter(context, data);
 
@@ -67,12 +77,16 @@ public class Home_frag extends Fragment {
                         if (task.isSuccessful()) {
                             for (DocumentSnapshot document : task.getResult()) {
                                 // Fetch the "name" field from each document
+                                String Id=document.getString("Id");
                                 String name = document.getString("Name");
                                 String price = document.getString("Price");
                                 String img = document.getString("Img");
+                                String cat = document.getString("Category");
                                 String dec = document.getString("Desc");
-                            data.add(new ProductStructure(""+name,""+price,""+img,""+dec));
+                            data.add(new ProductStructure(Integer.parseInt(Id),""+name,""+price,""+cat,""+img,""+dec));
                             }
+                            count=data.size();
+//                            Toast.makeText(context, ""+count, Toast.LENGTH_SHORT).show();
                             rc.setLayoutManager(new GridLayoutManager(context, 2));
                             rc.setAdapter(rca);
                         } else {
@@ -80,6 +94,8 @@ public class Home_frag extends Fragment {
                         }
                     }
                 });
+
+
 
         ///
 

@@ -9,13 +9,13 @@
 <ImageView
     android:id="@+id/pimg"
     android:layout_gravity="center"
-    android:layout_width="300dp"
+    android:layout_width="wrap_content"
     android:foregroundGravity="top"
-    android:layout_height="300dp"/>
+    android:layout_height="250dp"/>
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="294dp"
+        android:layout_height="280dp"
         >
 
         <LinearLayout
@@ -40,6 +40,12 @@
                 android:layout_height="wrap_content"
                 android:text="..."
                 android:textColor="@color/OrangeRed"
+                android:textSize="25dp" />
+            <TextView
+                android:id="@+id/cat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="..."
                 android:textSize="25dp" />
 
 
@@ -87,6 +93,7 @@
         android:layout_gravity="center"
         android:textSize="20dp"
         android:padding="10dp"
+        android:layout_marginTop="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Add to cart"/>

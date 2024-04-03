@@ -68,10 +68,13 @@ public class rcAdapter extends RecyclerView.Adapter<rcAdapter.ViewHolder> {
                 sp=context.getSharedPreferences("Product",MODE_PRIVATE);
                 editor = sp.edit();
 
-                editor.putString("page", "new plist()");
+//                editor.putString("page", "new plist()");
 
+                String temp=""+arrl.get(position).id;
+                editor.putString("Id",temp );
                 editor.putString("Name", arrl.get(position).nm);
                 editor.putString("Price", arrl.get(position).ps);
+                editor.putString("Category", arrl.get(position).cat);
                 editor.putString("Img", arrl.get(position).img);
                 editor.putString("Dec", arrl.get(position).des);
                 editor.apply();

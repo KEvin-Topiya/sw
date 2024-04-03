@@ -35,14 +35,14 @@ public class plist extends Fragment {
         // Required empty public constructor
     }
     int x;
-    String t="",p="",i="",d="";
+    String t="",p="",i="",d="",c="",id="";
     Uri im;
     Button buy;
     AppCompatButton ad,rm;
 
     ImageView img;
     addToFirebase a;
-    TextView title,prc,dec,qt;
+    TextView title,prc,dec,qt,cat;
     SharedPreferences sp;
     SharedPreferences.Editor editor;
     @SuppressLint({"MissingInflatedId", "SetTextI18n"})
@@ -60,6 +60,7 @@ public class plist extends Fragment {
         ad=view.findViewById(R.id.add);
         rm=view.findViewById(R.id.remove);
         qt=view.findViewById(R.id.qty);
+        cat=view.findViewById(R.id.cat);
 
          x=1;
 
@@ -80,15 +81,18 @@ public class plist extends Fragment {
 
 
         sp=context.getSharedPreferences("Product",MODE_PRIVATE);
+        id=sp.getString("Id","");
         t=""+sp.getString("Name","");
+        c=""+sp.getString("Category","");
         p=""+sp.getString("Price","");
         i=""+sp.getString("Img","");
         d=""+sp.getString("Dec","");
         im= Uri.parse(i);
 
-        title.setText("Name: "+t);
+        title.setText("Id: "+id+"\nName: "+t);
         dec.setText("\nDescription:\n  "+d);
         prc.setText("\nPrice: "+p+" $");
+        cat.setText("Category: "+c);
         Glide.with(context).load(i).into(img);
 
         buy.setOnClickListener(new View.OnClickListener() {
@@ -96,7 +100,7 @@ public class plist extends Fragment {
             public void onClick(View v) {
 
             sqlLiteHelper db=new sqlLiteHelper(context);
-            db.addtoCart(t,i,x,(Integer.parseInt(p)*x));
+            db.addtoCart(Integer.parseInt(id),t,i,c,x,(Integer.parseInt(p)*x));
                 AppCompatActivity activity= (AppCompatActivity) v.getContext();
                 cart_frag cart=new cart_frag();
                 activity.getSupportFragmentManager().beginTransaction().replace(R.id.container,cart).addToBackStack(null).commit();

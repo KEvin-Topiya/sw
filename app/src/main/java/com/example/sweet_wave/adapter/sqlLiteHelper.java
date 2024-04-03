@@ -21,6 +21,8 @@ public class sqlLiteHelper extends SQLiteOpenHelper {
     private static final String DB_NAME="SW_DB";
     private static final String TABLE_CART="CART_TBL";
     private static final String KEY_ID="ID";
+    private static final String KEY_PID="PID";
+    private static final String KEY_CAT="CATEGORY";
     private static final String KEY_NAME="NAME";
     private static final String KEY_IMG="IMG";
 
@@ -35,17 +37,19 @@ public class sqlLiteHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("CREATE TABLE "+TABLE_CART+
-                "(" + KEY_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + KEY_NAME + " TEXT, " + KEY_IMG +" TEXT, " +KEY_QTY + " INTEGER, "  +KEY_PRICE + " INTEGER " +")");
+                "(" + KEY_ID + " INTEGER PRIMARY KEY AUTOINCREMENT , " + KEY_PID + " INTEGER, "+ KEY_NAME + " TEXT, "+KEY_CAT + " Text, " + KEY_IMG +" TEXT, " +KEY_QTY + " INTEGER, "  +KEY_PRICE + " INTEGER " +")");
     }
 
 
 
-    public void addtoCart(String name,String img,int qty,int price){
+    public void addtoCart(int id,String name,String img,String cat,int qty,int price){
         SQLiteDatabase db=this.getWritableDatabase();
         ContentValues values=new ContentValues();
+        values.put(KEY_PID,id);
         values.put(KEY_NAME,name);
-        values.put(KEY_IMG,img);
+        values.put(KEY_CAT,cat);
         values.put(KEY_QTY,qty);
+        values.put(KEY_IMG,img);
         values.put(KEY_PRICE,price);
         db.insert(TABLE_CART,null, values);
 
@@ -60,11 +64,14 @@ public class sqlLiteHelper extends SQLiteOpenHelper {
         ArrayList<cart> arr=new ArrayList<>();
             while (cs.moveToNext()){
                 cart data=new cart();
-                data.Id=cs.getInt(0);
-                data.Name=cs.getString(1);
-                data.Img=cs.getString(2);
-                data.Qty=cs.getInt(3);
-                data.Price=cs.getInt(4);
+                int x=0;
+                data.Id=cs.getInt(x++);
+                data.Pid=cs.getInt(x++);
+                data.Name=cs.getString(x++);
+                data.Category=cs.getString(x++);
+                data.Img=cs.getString(x++);
+                data.Qty=cs.getInt(x++);
+                data.Price=cs.getInt(x++);
                 arr.add(data);
             };
         cs.close();

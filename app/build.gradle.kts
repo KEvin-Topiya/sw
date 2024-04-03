@@ -39,6 +39,8 @@ dependencies {
 
 //    implementation ("com.android.support:multidex:1.0.3")
 
+    implementation ("com.google.android.play:integrity:1.3.0")
+
 
     implementation(platform("com.google.firebase:firebase-bom:32.7.3"))
     implementation("com.google.firebase:firebase-auth")

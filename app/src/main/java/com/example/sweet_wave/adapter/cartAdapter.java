@@ -62,8 +62,6 @@ public class cartAdapter extends RecyclerView.Adapter<cartAdapter.ViewHolder> {
 
                      AppCompatActivity activity= (AppCompatActivity)v.getContext();
                      cart_frag p=new cart_frag();
-
-
                      activity.getSupportFragmentManager().beginTransaction().replace(R.id.container,p).addToBackStack(null).commit();
                 }
 
