@@ -41,13 +41,13 @@ public class add_Product extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        Context context=container.getContext();
+        Context context = container.getContext();
         av = FragmentAddProductBinding.inflate(inflater, container, false);
         String[] categ = { "Cake","Tart","Bread"};
         ArrayAdapter<String> cate=new ArrayAdapter<>(context, android.R.layout.simple_spinner_item,categ);
         av.cat.setAdapter(cate);
         other o=new other(context);
-        String id=""+o.getSp("pCount","count");
+        String id=""+o.getSp("pCount","lid");
         int i=Integer.parseInt(id)+1;
 
         av.img.setOnClickListener(new View.OnClickListener() {
@@ -78,6 +78,8 @@ public class add_Product extends Fragment {
                 if(!a.imgup(filePath,context,product,av.pname.getText().toString())){
                     AppCompatActivity activity= (AppCompatActivity) v.getContext();
                     Home_frag h=new Home_frag();
+                    addToFirebase aa=new addToFirebase();
+                    aa.getp(context);
                     activity.getSupportFragmentManager().beginTransaction().replace(R.id.container,h).addToBackStack(null).commit();
 
                     Toast.makeText(context, "uploaded", Toast.LENGTH_SHORT).show();

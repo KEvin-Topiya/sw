@@ -55,7 +55,8 @@ public class Home_frag extends Fragment {
         View view = inflater.inflate(R.layout.fragment_home_frag, container, false);
         context = container.getContext();
         SharedPreferences sp= context.getSharedPreferences("pCount",Context.MODE_PRIVATE);
-
+        addToFirebase aa=new addToFirebase();
+        aa.getp(context);
         RecyclerView rc = view.findViewById(R.id.product);
 //        other h=new other(context);
 

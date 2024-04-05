@@ -40,6 +40,9 @@ public class cart_frag extends Fragment {
         View view=inflater.inflate(R.layout.fragment_cart_frag, container, false);
         Context context=container.getContext();
 
+        top_bar t=new top_bar();
+//        t.crt.setColorFilter(getResources().getColor(R.color.red));
+
         bottomNavigation = requireActivity().findViewById(R.id.nav);
         bottomNavigation.show(3,true);
 

@@ -21,7 +21,7 @@ import com.example.sweet_wave.fragements.user_frag;
 import kotlin.Unit;
 import kotlin.jvm.functions.Function1;
 
-public class Home extends AppCompatActivity {
+public class Home extends AppCompatActivity  {
      MeowBottomNavigation nav;
      String ROOT_FRAGMENT_TAG;
 

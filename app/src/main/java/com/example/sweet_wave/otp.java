@@ -76,10 +76,12 @@ SharedPreferences.Editor editor;
                                     i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                                     Random rand=new Random();
                                     editor=sp.edit();
-                                    editor.putString("UID",un+rand.nextInt(10000));
+                                    editor.putString("UID",un);
                                     editor.putString("user",un);
                                     editor.putString("phone",ph);
                                     editor.putString("login","20");
+                                    editor.putString("cred",credential.toString());
+
 
                                     editor.apply();
                                     addToFirebase a=new addToFirebase();
@@ -88,6 +90,7 @@ SharedPreferences.Editor editor;
                                     map.put("Name",un);
                                     map.put("Password",ps);
                                     map.put("Phone",ph);
+//                                    map.put("Cred", credential.toString());
 
                                     if(!(a.addtofirebae("User",map,map.get("Name")))){
                                         startActivity(i);
