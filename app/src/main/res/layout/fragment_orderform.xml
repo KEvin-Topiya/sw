@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:orientation="vertical"
+    android:gravity="center"
+    tools:context=".fragements.orderform">
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Order Page"
+        android:textColor="@color/DarkOrange"
+        android:layout_marginBottom="30dp"
+        android:textSize="40dp"/>
+
+    <TableLayout
+        android:padding="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+
+        <TableRow>
+            <TextView
+                android:text="Address: "
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:textSize="20dp"
+                />
+            <EditText
+                android:id="@+id/addres"
+
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:textSize="20dp"
+                android:inputType="textMultiLine"
+                android:hint="Address.."/>
+
+        </TableRow>
+        <TableRow android:layout_marginTop="5dp">
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:textSize="20dp"
+                android:text="Payment:"/>
+           <RadioGroup android:orientation="horizontal" android:id="@+id/pay">
+               <RadioButton
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:text="COD"/>
+               <RadioButton
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:text="UPI"/>
+           </RadioGroup>
+        </TableRow>
+
+            <EditText
+                android:id="@+id/upi"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:visibility="gone"
+                android:text="UPI ID"/>
+
+
+        <TableRow android:layout_marginTop="15dp">
+            <TextView
+                android:text="Order arrive Date: "
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:textSize="20dp"
+                />
+
+            <TextView
+                android:id="@+id/orDate"
+                android:textSize="20dp"
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1/1/1111"
+                />
+        </TableRow>
+        <TableRow android:layout_marginTop="15dp">
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:textSize="20dp"
+                android:text="Total:"/>
+            <TextView
+                android:id="@+id/total"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="000"
+                android:textSize="20dp"
+                />
+        </TableRow>
+
+       <Button
+           android:id="@+id/order"
+           android:layout_height="wrap_content"
+           android:layout_width="wrap_content"
+           android:textSize="30dp"
+           android:hint="Order Now"
+           />
+
+    </TableLayout>
+
+
+</LinearLayout>

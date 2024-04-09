@@ -36,9 +36,9 @@ public class addToFirebase {
     FirebaseStorage storage;
     CollectionReference collection;
     Uri file;
-    public boolean addtofirebae(String collection, HashMap<String, String> map, String doc){
+    public boolean addtofirebae(String collection, HashMap<String,String> map, String doc){
         FirebaseFirestore db = FirebaseFirestore.getInstance();
-
+res=false;
         db.collection(collection).document(doc).set(map)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override

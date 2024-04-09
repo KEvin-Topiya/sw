@@ -4,6 +4,8 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Bundle;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatButton;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -21,7 +23,10 @@ import com.example.sweet_wave.adapter.ProductStructure;
 import com.example.sweet_wave.adapter.*;
 import com.example.sweet_wave.databinding.FragmentCartFragBinding;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.Locale;
 
 
 public class cart_frag extends Fragment {
@@ -30,6 +35,7 @@ public class cart_frag extends Fragment {
     RecyclerView rc;
     sqlLiteHelper db;
     ArrayList<cart> ac;
+    AppCompatButton order;
 
     public MeowBottomNavigation bottomNavigation;
 
@@ -44,8 +50,8 @@ public class cart_frag extends Fragment {
 //        t.crt.setColorFilter(getResources().getColor(R.color.red));
 
         bottomNavigation = requireActivity().findViewById(R.id.nav);
-        bottomNavigation.show(3,true);
-
+        bottomNavigation.show(0,true);
+        order=view.findViewById(R.id.ord);
 
         Context act=getActivity();
 
@@ -53,10 +59,26 @@ public class cart_frag extends Fragment {
         db=new sqlLiteHelper(context);
         ac=new ArrayList<>();
         ac=db.selectAll();
+        if(ac.size()==0){
+
+        }
 
         cartAdapter rca=new cartAdapter(context, ac,act);
         rc.setLayoutManager(new LinearLayoutManager(context));
         rc.setAdapter(rca);
+
+
+
+        order.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AppCompatActivity activity= (AppCompatActivity) v.getContext();
+                orderform p=new orderform();
+                activity.getSupportFragmentManager().beginTransaction().replace(R.id.container,p).addToBackStack(null).commit();
+
+
+            }
+        });
 
         return view;
     }

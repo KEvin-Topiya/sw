@@ -14,6 +14,7 @@ import androidx.annotation.Nullable;
 import com.google.firestore.v1.Value;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 
 public class sqlLiteHelper extends SQLiteOpenHelper {
@@ -77,6 +78,23 @@ public class sqlLiteHelper extends SQLiteOpenHelper {
         cs.close();
         return arr;
     }
+    public HashMap<String, String> selectPid(){
+
+        SQLiteDatabase db=this.getReadableDatabase();
+        Cursor cs=db.rawQuery("SELECT *  FROM "+ TABLE_CART,null);
+
+        String arr="";
+        int total=0;
+        while (cs.moveToNext()){
+            arr+= cs.getString(2)+":"+cs.getInt(5)+",";
+            total+=cs.getInt(6);
+        };
+        cs.close();
+        HashMap<String,String> d=new HashMap<>();
+        d.put("ord",arr);
+        d.put("total", String.valueOf(total));
+        return d;
+    }
 
     public boolean deleteRow(int id){
         SQLiteDatabase db=this.getWritableDatabase();
@@ -85,9 +103,15 @@ public class sqlLiteHelper extends SQLiteOpenHelper {
 
     }
 
+    public void trunc(String table){
+        SQLiteDatabase db=this.getWritableDatabase();
+        db.delete(table,null,null);
+    }
+
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL(" DROP TABLE IF EXISTS " + TABLE_CART);
         onCreate(db);
     }
+
 }
