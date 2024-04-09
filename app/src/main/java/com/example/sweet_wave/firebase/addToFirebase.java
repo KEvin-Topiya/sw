@@ -198,5 +198,29 @@ int lid=0;
 
     }
 
+        int x=0;
+    public boolean delete(String col,String doc){
+        x=0;
+        db = FirebaseFirestore.getInstance();
+        db.collection(col).document(doc)
+                .delete()
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        x=1;
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        x=0;
+                    }
+                });
+        if(x==1){
+            return true;
+        }
+        else return false;
+    }
+
 
 }

@@ -22,6 +22,7 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.etebarian.meowbottomnavigation.MeowBottomNavigation;
 import com.example.sweet_wave.R;
 import com.example.sweet_wave.adapter.other;
 import com.example.sweet_wave.adapter.sqlLiteHelper;
@@ -44,11 +45,15 @@ RadioGroup rg;
     HashMap<String,String> orders;
 
 String unm,name,address,pay,dat,ord,totl,doc;
+    public MeowBottomNavigation bottomNavigation;
    HashMap<String,String > data;
     @SuppressLint({"MissingInflatedId", "ResourceType"})
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+        bottomNavigation = requireActivity().findViewById(R.id.nav);
+        bottomNavigation.show(3,true);
         // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.fragment_orderform, container, false);
         context=container.getContext();

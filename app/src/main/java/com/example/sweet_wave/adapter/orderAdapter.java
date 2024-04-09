@@ -17,7 +17,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.example.sweet_wave.R;
 import com.example.sweet_wave.firebase.*;
+import com.example.sweet_wave.fragements.Home_frag;
+import com.example.sweet_wave.fragements.Order_frag;
 import com.example.sweet_wave.fragements.cart_frag;
+import com.example.sweet_wave.fragements.plist;
 
 import java.util.ArrayList;
 
@@ -41,7 +44,7 @@ public class orderAdapter extends RecyclerView.Adapter<com.example.sweet_wave.ad
 
         @Override
         public void onBindViewHolder(@NonNull com.example.sweet_wave.adapter.orderAdapter.ViewHolder holder, @SuppressLint("RecyclerView") int position) {
-
+            Context cc = holder.itemView.getContext();
             holder.order.setText(arrl.get(position).Order);
             holder.date.setText(""+arrl.get(position).Date);
             holder.address.setText(""+arrl.get(position).Address);
@@ -50,7 +53,16 @@ public class orderAdapter extends RecyclerView.Adapter<com.example.sweet_wave.ad
                 @Override
                 public void onClick(View v) {
                     addToFirebase a=new addToFirebase();
-                    Toast.makeText(context, "remove", Toast.LENGTH_SHORT).show();
+                    if(!a.delete("Order", "" + arrl.get(position).id)){
+
+                        AppCompatActivity activity= (AppCompatActivity) cc;
+                        Order_frag h= new Order_frag();
+                        activity.getSupportFragmentManager().beginTransaction().replace(R.id.container,h).addToBackStack(null).commit();
+
+                    }
+                    else{
+                        Toast.makeText(context, "error", Toast.LENGTH_SHORT).show();
+                    }
                 }
             });
 
@@ -74,8 +86,6 @@ public class orderAdapter extends RecyclerView.Adapter<com.example.sweet_wave.ad
                 address = itemView.findViewById(R.id.address);
                 total = itemView.findViewById(R.id.total);
                 cancle = itemView.findViewById(R.id.cancle);
-
-
             }
         }
 

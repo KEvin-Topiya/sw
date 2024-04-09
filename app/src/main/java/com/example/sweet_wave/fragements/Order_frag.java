@@ -17,6 +17,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.etebarian.meowbottomnavigation.MeowBottomNavigation;
 import com.example.sweet_wave.R;
 import com.example.sweet_wave.adapter.ProductStructure;
 import com.example.sweet_wave.adapter.orderAdapter;
@@ -35,17 +36,20 @@ import java.util.ArrayList;
 public class Order_frag extends Fragment {
 
     Context context;
+    public MeowBottomNavigation bottomNavigation;
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+
         // Inflate the layout for this fragment
         View view =inflater.inflate(R.layout.fragment_order, container, false);
         context=container.getContext();
 
+
         RecyclerView orc=view.findViewById(R.id.orc);
 
-        addToFirebase aa=new addToFirebase();
 
         ArrayList<orderStructure> data = new ArrayList<>();
 
