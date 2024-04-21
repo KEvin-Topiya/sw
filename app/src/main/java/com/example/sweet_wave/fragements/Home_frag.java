@@ -15,6 +15,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.etebarian.meowbottomnavigation.MeowBottomNavigation;
 import com.example.sweet_wave.R;
 import com.example.sweet_wave.adapter.ProductStructure;
 import com.example.sweet_wave.adapter.other;
@@ -43,7 +44,7 @@ public class Home_frag extends Fragment {
     public int count;
 
     int c=0;
-
+    MeowBottomNavigation nav;
 
     public Home_frag() {
         // Required empty public constructor
@@ -58,6 +59,15 @@ public class Home_frag extends Fragment {
         addToFirebase aa=new addToFirebase();
         aa.getp(context);
         RecyclerView rc = view.findViewById(R.id.product);
+
+
+        nav=view.findViewById(R.id.cat);
+        nav.add(new MeowBottomNavigation.Model(1, R.drawable.ash));
+        nav.add(new MeowBottomNavigation.Model(2, R.drawable.cat_bread));
+        nav.add(new MeowBottomNavigation.Model(3, R.drawable.cat_pastry));
+
+
+
 //        other h=new other(context);
 
         try{

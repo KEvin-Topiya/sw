@@ -86,7 +86,7 @@ public class sqlLiteHelper extends SQLiteOpenHelper {
         String arr="";
         int total=0;
         while (cs.moveToNext()){
-            arr+= cs.getString(2)+":"+cs.getInt(5)+",";
+            arr+= cs.getString(2)+":"+cs.getInt(5)+",\n";
             total+=cs.getInt(6);
         };
         cs.close();

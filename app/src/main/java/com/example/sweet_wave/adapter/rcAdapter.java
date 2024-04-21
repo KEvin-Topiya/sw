@@ -60,7 +60,7 @@ public class rcAdapter extends RecyclerView.Adapter<rcAdapter.ViewHolder> {
                 .into(holder.img);
 
         holder.name.setText(arrl.get(position).nm);
-        holder.price.setText(arrl.get(position).ps);
+        holder.price.setText(arrl.get(position).ps+"₹");
 
         holder.img.setOnClickListener(new View.OnClickListener() {
             @Override

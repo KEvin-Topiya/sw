@@ -7,6 +7,16 @@
     tools:context=".Login">
 
     <ImageView
+        android:layout_width="400dp"
+        android:layout_centerHorizontal="true"
+
+        android:elevation="1dp"
+        android:cropToPadding="true"
+        android:layout_marginTop="-10dp"
+        android:layout_height="wrap_content"
+        android:src="@drawable/swlg"/>
+
+    <ImageView
         android:layout_width="match_parent"
         android:scaleType="centerCrop"
         android:layout_height="200dp"

@@ -91,7 +91,7 @@ public class plist extends Fragment {
 
         title.setText("Id: "+id+"\nName: "+t);
         dec.setText("\nDescription:\n  "+d);
-        prc.setText("\nPrice: "+p+" $");
+        prc.setText("\nPrice: "+p+" ₹");
         cat.setText("Category: "+c);
         Glide.with(context).load(i).into(img);
 

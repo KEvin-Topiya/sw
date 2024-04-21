@@ -159,4 +159,5 @@
     <color name="Black">#000000</color>
     <color name="bg1">#F5C144</color>
     <color name="topbar_color">#EF874E</color>
+    <color name="white_transparent">#00FFFFFF</color>
 </resources>
