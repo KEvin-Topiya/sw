@@ -15,11 +15,13 @@ import android.widget.ImageView;
 
 import com.example.sweet_wave.R;
 import com.example.sweet_wave.adapter.other;
+import com.google.android.material.imageview.ShapeableImageView;
 
 
 public class top_bar extends Fragment {
 
 ImageView crt,add;
+ShapeableImageView usr;
 
 
     @Override
@@ -29,6 +31,18 @@ ImageView crt,add;
         View view= inflater.inflate(R.layout.fragment_top_bar, container, false);
         crt=view.findViewById(R.id.cart);
         add=view.findViewById(R.id.addp);
+        usr=view.findViewById(R.id.usr);
+
+        usr.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AppCompatActivity activity= (AppCompatActivity)v.getContext();
+                user_frag p=new user_frag();
+                activity.getSupportFragmentManager().beginTransaction().replace(R.id.container,p).addToBackStack(null).commit();
+            }
+        });
+
+
 
         other o=new other(context);
         add.setVisibility(View.INVISIBLE);

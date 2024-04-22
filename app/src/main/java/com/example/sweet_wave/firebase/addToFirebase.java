@@ -172,16 +172,20 @@ int lid=0;
     public void getp(Context context){
         ArrayList<ProductStructure> data = new ArrayList<>();
         db = FirebaseFirestore.getInstance();
-        db.collection("Products").orderBy("Id")
+        db.collection("Products")
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
                         if (task.isSuccessful()) {
                             lid=0;
+                            int id = 0;
                             for (DocumentSnapshot document : task.getResult()) {
                                 data.add(new ProductStructure(0,"","","","",""));
+
                                 lid= Integer.parseInt(document.get("Id").toString());
+                                if(id>lid)lid=id;
+                                else id =lid;
                             }
                             other o =new other(context);
                             HashMap<String,String> p=new HashMap<>();

@@ -22,6 +22,7 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.sweet_wave.*;
+import com.example.sweet_wave.adapter.other;
 import com.example.sweet_wave.adapter.sqlLiteHelper;
 import com.example.sweet_wave.firebase.addToFirebase;
 
@@ -38,7 +39,7 @@ public class plist extends Fragment {
     String t="",p="",i="",d="",c="",id="";
     Uri im;
     Button buy;
-    AppCompatButton ad,rm;
+    AppCompatButton ad,rm,dlt;
 
     ImageView img;
     addToFirebase a;
@@ -61,8 +62,16 @@ public class plist extends Fragment {
         rm=view.findViewById(R.id.remove);
         qt=view.findViewById(R.id.qty);
         cat=view.findViewById(R.id.cat);
+        dlt=view.findViewById(R.id.dlt);
+
+
+        other o=new other(context);
+        dlt.setVisibility(View.INVISIBLE);
+        if(o.getSp("SW","login").equals("9"))dlt.setVisibility(View.VISIBLE);
 
          x=1;
+
+
 
         ad.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -89,8 +98,8 @@ public class plist extends Fragment {
         d=""+sp.getString("Dec","");
         im= Uri.parse(i);
 
-        title.setText("Id: "+id+"\nName: "+t);
-        dec.setText("\nDescription:\n  "+d);
+        title.setText("Name: "+t);
+        dec.setText("\nDescription:\n  "+d+"\n");
         prc.setText("\nPrice: "+p+" ₹");
         cat.setText("Category: "+c);
         Glide.with(context).load(i).into(img);
@@ -106,7 +115,16 @@ public class plist extends Fragment {
                 activity.getSupportFragmentManager().beginTransaction().replace(R.id.container,cart).addToBackStack(null).commit();
             }
         });
-
+        dlt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                addToFirebase ab=new addToFirebase();
+                ab.delete("Products",id);
+                AppCompatActivity activity= (AppCompatActivity)v.getContext();
+                Home_frag p=new Home_frag();
+                activity.getSupportFragmentManager().beginTransaction().replace(R.id.container,p).addToBackStack(null).commit();
+            }
+        });
 
         return view;
     }

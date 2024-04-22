@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="#FBFBFB"
+    android:background="#f5f5f5"
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".fragements.Home_frag">
@@ -35,18 +35,99 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-  
-   <ImageButton
+   <LinearLayout
+       android:id="@+id/catcakeback"
        android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       android:src="@drawable/cat_bread"/>
-   <ImageButton
+       android:orientation="vertical"
+       android:gravity="center"
+       android:background="@drawable/catback_shape"
+       android:layout_weight="1"
+       android:layout_marginLeft="25dp"
+       android:layout_marginRight="25dp"
+       android:padding="5dp"
+       android:layout_height="wrap_content">
+
+   <ImageView
+       android:id="@+id/catcake"
+       android:layout_width="70dp"
+       android:padding="5dp"
+       android:layout_height="70dp"
+       android:background="@drawable/catback_shape"
+       android:backgroundTint="@color/white"
+       android:src="@drawable/ellipse2"/>
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+         android:text="Cakes"
+          android:fontFamily="@font/aclonica"
+          android:layout_marginTop="5dp"
+          android:textSize="15dp"
+          android:layout_marginBottom="15dp"
+
+          />
+   </LinearLayout>
+   <LinearLayout
+       android:id="@+id/catbreadback"
        android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       android:src="@drawable/cat_pastry"/>
-   <ImageButton
+       android:orientation="vertical"
+       android:gravity="center"
+       android:background="@drawable/catback_shape"
+       android:layout_weight="1"
+       android:layout_marginLeft="25dp"
+       android:layout_marginRight="25dp"
+       android:padding="5dp"
+       android:layout_height="wrap_content">
+
+      <ImageView
+          android:id="@+id/catbread"
+          android:layout_width="70dp"
+          android:layout_height="70dp"
+          android:padding="10dp"
+          android:background="@drawable/catback_shape"
+          android:backgroundTint="@color/white"
+          android:src="@drawable/cat_bread"/>
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="Bread"
+          android:fontFamily="@font/aclonica"
+          android:layout_marginTop="5dp"
+          android:textSize="15dp"
+          android:layout_marginBottom="15dp"
+
+          />
+   </LinearLayout>
+   <LinearLayout
+       android:id="@+id/catpastryback"
        android:layout_width="wrap_content"
-       android:layout_height="wrap_content"/>
+       android:orientation="vertical"
+       android:gravity="center"
+       android:background="@drawable/catback_shape"
+       android:layout_weight="1"
+       android:layout_marginLeft="25dp"
+       android:layout_marginRight="25dp"
+       android:padding="5dp"
+       android:layout_height="wrap_content">
+
+      <ImageView
+       android:id="@+id/catpastry"
+          android:padding="10dp"
+          android:layout_width="70dp"
+          android:layout_height="70dp"
+          android:background="@drawable/catback_shape"
+          android:backgroundTint="@color/white"
+          android:src="@drawable/cat_pastry"/>
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="Pastry"
+          android:fontFamily="@font/aclonica"
+          android:layout_marginTop="5dp"
+          android:textSize="15dp"
+          android:layout_marginBottom="15dp"
+
+          />
+   </LinearLayout>
 
 
 
