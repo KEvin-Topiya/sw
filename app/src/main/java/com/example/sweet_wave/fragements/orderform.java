@@ -44,7 +44,7 @@ Button order;
 RadioGroup rg;
     HashMap<String,String> orders;
 
-String unm,name,address,pay,dat,ord,totl,doc;
+String unm,name,address,pay,dat,ord,totl,doc,phone;
     public MeowBottomNavigation bottomNavigation;
    HashMap<String,String > data;
     @SuppressLint({"MissingInflatedId", "ResourceType"})
@@ -86,8 +86,8 @@ String unm,name,address,pay,dat,ord,totl,doc;
                 }
                 else if(radioButton.getText().toString().equals("COD")){
 
-                    upi.setVisibility(View.GONE);
                    upi.setText("COD");
+                    upi.setVisibility(View.GONE);
                 }
             }
         });
@@ -99,6 +99,7 @@ String unm,name,address,pay,dat,ord,totl,doc;
                     ord = data.get("ord").toString().replaceAll(".$", "").trim();
                     name = new other(context).getSp("SW", "user");
                     address = add.getText().toString().trim();
+                    phone =new other(context).getSp("SW", "phone");
                     pay = upi.getText().toString();
                     dat = da;
 
@@ -108,6 +109,7 @@ String unm,name,address,pay,dat,ord,totl,doc;
                     orders.put("Uname", name);
                     orders.put("Address", address);
                     orders.put("Pay", pay);
+                    orders.put("Phone", phone);
                     orders.put("Date", dat);
                     orders.put("Status", "Persuing");
                     orders.put("Total", totl );//+ "₹");

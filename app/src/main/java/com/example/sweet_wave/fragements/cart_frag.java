@@ -15,6 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.etebarian.meowbottomnavigation.MeowBottomNavigation;
@@ -31,6 +32,7 @@ import java.util.Locale;
 
 public class cart_frag extends Fragment {
 
+    TextView a;
 
     RecyclerView rc;
     sqlLiteHelper db;
@@ -52,7 +54,7 @@ public class cart_frag extends Fragment {
         bottomNavigation = requireActivity().findViewById(R.id.nav);
         bottomNavigation.show(0,true);
         order=view.findViewById(R.id.ord);
-
+        a=view.findViewById(R.id.niproduct);
         Context act=getActivity();
 
          rc=view.findViewById(R.id.cartlist);
@@ -60,7 +62,7 @@ public class cart_frag extends Fragment {
         ac=new ArrayList<>();
         ac=db.selectAll();
         if(ac.size()==0){
-
+a.setText("Cart is empty");
         }
 
         cartAdapter rca=new cartAdapter(context, ac,act);
