@@ -99,10 +99,8 @@
         android:text="Add to cart"/>
 
 
-            <androidx.appcompat.widget.AppCompatButton
-
-                android:id="@+id/dlt"
-
+        <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/dlt"
         android:background="@drawable/button_shape"
         android:textColor="@color/white"
         android:layout_gravity="center"
@@ -113,6 +111,18 @@
         android:layout_height="wrap_content"
                 android:layout_marginBottom="20dp"
         android:text="delete product"/>
+        <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/edt"
+        android:background="@drawable/button_shape"
+        android:textColor="@color/white"
+        android:layout_gravity="center"
+        android:textSize="20dp"
+        android:padding="10dp"
+        android:layout_marginTop="15dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+        android:text="edit product"/>
 
         </LinearLayout>
     </ScrollView>

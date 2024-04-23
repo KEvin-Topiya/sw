@@ -78,6 +78,7 @@ public class Home_frag extends Fragment {
 
         RecyclerView rc = view.findViewById(R.id.product);
 
+      loadrc(rc);
 
         TextView seeall=view.findViewById(R.id.all);
 
@@ -122,6 +123,9 @@ public class Home_frag extends Fragment {
         seeall.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                pastryback.setBackgroundResource(R.drawable.catback_shape);
+                breadback.setBackgroundResource(R.drawable.catback_shape);
+                cakeback.setBackgroundResource(R.drawable.catback_shape);
 loadrc(rc);
             }
         });
@@ -133,7 +137,6 @@ loadrc(rc);
          c=Integer.parseInt(sp.getString("count",""));
         }catch (Exception e){}
 
-      loadrc(rc);
 
 
         ///

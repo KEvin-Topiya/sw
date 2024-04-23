@@ -18,17 +18,12 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.sweet_wave.*;
 import com.example.sweet_wave.adapter.other;
 import com.example.sweet_wave.adapter.sqlLiteHelper;
 import com.example.sweet_wave.firebase.addToFirebase;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Timer;
 
 public class plist extends Fragment {
 
@@ -39,7 +34,7 @@ public class plist extends Fragment {
     String t="",p="",i="",d="",c="",id="";
     Uri im;
     Button buy;
-    AppCompatButton ad,rm,dlt;
+    AppCompatButton ad,rm,dlt,edt;
 
     ImageView img;
     addToFirebase a;
@@ -63,11 +58,16 @@ public class plist extends Fragment {
         qt=view.findViewById(R.id.qty);
         cat=view.findViewById(R.id.cat);
         dlt=view.findViewById(R.id.dlt);
+        edt=view.findViewById(R.id.edt);
 
 
         other o=new other(context);
         dlt.setVisibility(View.INVISIBLE);
-        if(o.getSp("SW","login").equals("9"))dlt.setVisibility(View.VISIBLE);
+        edt.setVisibility(View.INVISIBLE);
+        if(o.getSp("SW","login").equals("9")){
+            dlt.setVisibility(View.VISIBLE);
+            edt.setVisibility(View.VISIBLE);
+        }
 
          x=1;
 
@@ -126,6 +126,15 @@ public class plist extends Fragment {
             }
         });
 
+        edt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AppCompatActivity activity= (AppCompatActivity) v.getContext();
+                editproduct p=new editproduct();
+                activity.getSupportFragmentManager().beginTransaction().replace(R.id.container,p).addToBackStack(null).commit();
+
+            }
+        });
         return view;
     }
 }

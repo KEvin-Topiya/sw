@@ -3,13 +3,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/Crimson"
+    android:background="#f5f5f5"
     tools:context=".fragements.offer_frag">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
+        android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:textSize="20dp"
+        android:text="No offers are available" />
 
 </FrameLayout>

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context=".fragements.editproduct">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Edit Product"
+        android:textColor="@color/Blue"
+        android:layout_marginBottom="30dp"
+        android:textSize="40dp"/>
+
+    <TableLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+
+        <TableRow>
+            <TextView
+                android:text="Name: "
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:textSize="20dp"
+                />
+            <EditText
+                android:id="@+id/pname"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:textSize="20dp"
+                android:hint="Product Name.."/>
+
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:text="Price: "
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:textSize="20dp"
+                />
+            <EditText
+                android:id="@+id/price"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:textSize="20dp"
+                android:inputType="number"
+                android:hint="price.."/>
+
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:textSize="20dp"
+                android:text="Category:"/>
+            <Spinner
+                android:id="@+id/cat"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:text="Description: "
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:textSize="20dp"
+                />
+            <EditText
+                android:id="@+id/desc"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:textSize="20dp"
+                android:hint="Product Descri..."/>
+
+        </TableRow>
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/addp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="30dp"
+            android:background="@color/DeepSkyBlue"
+            android:textColor="@color/white"
+            android:text="Edit Product"/>
+
+    </TableLayout>
+
+
+</LinearLayout>
