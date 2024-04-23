@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.example.sweet_wave.R;
 import com.example.sweet_wave.adapter.other;
@@ -49,13 +50,19 @@ ShapeableImageView usr;
         if(o.getSp("SW","login").equals("9"))add.setVisibility(View.VISIBLE);
 
 
+
+
         crt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
+        if(!o.getSp("SW","login").equals("9")){
                 AppCompatActivity activity= (AppCompatActivity)v.getContext();
                 cart_frag p=new cart_frag();
                 activity.getSupportFragmentManager().beginTransaction().replace(R.id.container,p).addToBackStack(null).commit();
+        }else{
+            Toast.makeText(context, "cart not open in admin because it useless for admin", Toast.LENGTH_SHORT).show();
+        }
 
             }
         });

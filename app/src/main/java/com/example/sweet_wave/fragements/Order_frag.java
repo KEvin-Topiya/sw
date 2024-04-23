@@ -56,8 +56,38 @@ public class Order_frag extends Fragment {
 
         String un=new other(context).getSp("SW","user");
 
+        other o=new other(context);
+        if(o.getSp("SW","login").equals("9")){
+            db.collection("Order")
+                    .get()
+                    .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                        @Override
+                        public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                            if (task.isSuccessful()) {
+                                for (QueryDocumentSnapshot document : task.getResult()) {
+                                    String id= document.getId();
+                                    String add=document.getString("Address");
+                                    String date = document.getString("Date");
+                                    String order = document.getString("Order");
+                                    String pay = document.getString("Pay");
+                                    String total = document.getString(  "Total").replace("₹","");
+                                    String name = document.getString("Uname");
+                                    String phone = document.getString("Phone");
+                                    String status=document.getString("Status");
+                                    data.add(new orderStructure((Integer.parseInt(total)),""+id,""+add,""+order,""+date,""+pay,""+status,""+name,""+phone));
 
-        //
+                                }
+                                orderAdapter o=new orderAdapter(context,data);
+                                orc.setLayoutManager(new LinearLayoutManager(context));
+                                orc.setAdapter(o);
+                            } else {
+                                Toast.makeText(context, "No data", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    });
+        }
+        else{
+
         db.collection("Order")
                 .whereEqualTo("Uname",un )
                 .get()
@@ -73,8 +103,9 @@ public class Order_frag extends Fragment {
                                 String pay = document.getString("Pay");
                                 String total = document.getString(  "Total").replace("₹","");
                                 String name = document.getString("Uname");
+                                String phone = document.getString("Phone");
                                 String status=document.getString("Status");
-                                data.add(new orderStructure((Integer.parseInt(total)),""+id,""+add,""+order,""+date,""+pay,""+status,""+name));
+                                data.add(new orderStructure((Integer.parseInt(total)),""+id,""+add,""+order,""+date,""+pay,""+status,""+name,""+phone));
 
                             }
                             orderAdapter o=new orderAdapter(context,data);
@@ -85,6 +116,7 @@ public class Order_frag extends Fragment {
                         }
                     }
                 });
+        }
         //
 
 

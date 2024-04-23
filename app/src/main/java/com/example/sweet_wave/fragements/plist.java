@@ -64,9 +64,11 @@ public class plist extends Fragment {
         other o=new other(context);
         dlt.setVisibility(View.INVISIBLE);
         edt.setVisibility(View.INVISIBLE);
+            buy.setVisibility(View.VISIBLE);
         if(o.getSp("SW","login").equals("9")){
             dlt.setVisibility(View.VISIBLE);
             edt.setVisibility(View.VISIBLE);
+            buy.setVisibility(View.INVISIBLE);
         }
 
          x=1;

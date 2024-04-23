@@ -45,7 +45,15 @@ public class orderAdapter extends RecyclerView.Adapter<com.example.sweet_wave.ad
         @Override
         public void onBindViewHolder(@NonNull com.example.sweet_wave.adapter.orderAdapter.ViewHolder holder, @SuppressLint("RecyclerView") int position) {
             Context cc = holder.itemView.getContext();
+            other o=new other(context);
+            if(o.getSp("SW","login").equals("9")){
+            holder.order.setText("User:"+arrl.get(position).Uname+"\n"+arrl.get(position).phone+"\n"+arrl.get(position).Order);
+            holder.cancle.setHint("Order Complate");
+            }
+            else{
+
             holder.order.setText(arrl.get(position).Order);
+            }
             holder.date.setText(""+arrl.get(position).Date);
             holder.address.setText(""+arrl.get(position).Address);
             holder.total.setText(""+(arrl.get(position).Total));
